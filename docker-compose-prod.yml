@@ -1,0 +1,11 @@
+jhipster-prod-postgresql:
+  container_name: modern-prod-postgresql
+  image: postgres:9.4.5
+  # volumes:
+  # - ~/volumes/jhipster/modern/prod-postgresql/:/var/lib/postgresql/
+  environment:
+  - POSTGRES_USER=modern
+  - POSTGRES_PASSWORD=
+  ports:
+  - "5432:5432"
+

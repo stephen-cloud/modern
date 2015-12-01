@@ -1,0 +1,25 @@
+{
+  "generator-jhipster": {
+    "baseName": "modern",
+    "packageName": "com.aciworldwide.modern",
+    "packageFolder": "com/aciworldwide/modern",
+    "authenticationType": "session",
+    "hibernateCache": "ehcache",
+    "clusteredHttpSession": "no",
+    "websocket": "no",
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": "no",
+    "useSass": false,
+    "buildTool": "maven",
+    "frontendBuilder": "grunt",
+    "enableTranslation": true,
+    "enableSocialSignIn": false,
+    "rememberMeKey": "701a8092803dfdc73cf539e91d29982e7122c5c1",
+    "testFrameworks": [
+      "gatling",
+      "cucumber"
+    ]
+  }
+}
