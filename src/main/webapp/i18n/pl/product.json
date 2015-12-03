@@ -1,0 +1,23 @@
+{
+    "modernApp": {
+        "product" : {
+            "home": {
+                "title": "Product",
+                "createLabel": "Dodaj Product",
+                "createOrEditLabel": "Dodaj lub edytuj: Product"
+            },
+            "delete": {
+                "question": "Czy na pewno chcesz usunąć Product {{ id }}?"
+            },
+            "detail": {
+                "title": "Product"
+            },
+            "description": "Description",
+            "price": "Price",
+            "sku": "Sku",
+            "stock": "Stock",
+            "department": "Department",
+            "warehouse": "Warehouse"
+        }
+    }
+}

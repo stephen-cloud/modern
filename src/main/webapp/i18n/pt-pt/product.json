@@ -1,0 +1,23 @@
+{
+    "modernApp": {
+        "product" : {
+            "home": {
+                "title": "Products",
+                "createLabel": "Criar um(a) novo(a) Product",
+                "createOrEditLabel": "Criar ou editar um(a) Product"
+            },
+            "delete": {
+                "question": "Tem a certeza que pretende eliminar o(a) Product {{ id }}?"
+            },
+            "detail": {
+                "title": "Product"
+            },
+            "description": "Description",
+            "price": "Price",
+            "sku": "Sku",
+            "stock": "Stock",
+            "department": "Department",
+            "warehouse": "Warehouse"
+        }
+    }
+}

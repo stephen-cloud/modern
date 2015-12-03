@@ -1,0 +1,22 @@
+{
+    "modernApp": {
+        "warehouse" : {
+            "home": {
+                "title": "Warehouses",
+                "createLabel": "Warehouse-ஐ உருவாக்கு",
+                "createOrEditLabel": "Warehouse -ஐ மாற்று (அ) உருவாக்கு"
+            },
+            "created": "Warehouse புதிதாக உருவாக்கப்பட்டது, அடையாளம் {{ param }}",
+            "updated": "Warehouse மாற்றப்பட்டது, அடையாளம்  {{ param }}",
+            "deleted": "A Warehouse நீக்கப்பட்டது, அடையாளம {{ param }}",
+            "delete": {
+                "question": "நீக்குவதற்கு உறுதி செய் Warehouse {{ id }}?"
+            },
+            "detail": {
+                "title": "Warehouse"
+            },
+            "location": "Location",
+            "product": "Product"
+        }
+    }
+}

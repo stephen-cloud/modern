@@ -1,0 +1,23 @@
+{
+    "modernApp": {
+        "product" : {
+            "home": {
+                "title": "Products",
+                "createLabel": "Product を追加",
+                "createOrEditLabel": "Productを追加または編集"
+            },
+            "delete": {
+                "question": "Product {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Product"
+            },
+            "description": "Description",
+            "price": "Price",
+            "sku": "Sku",
+            "stock": "Stock",
+            "department": "Department",
+            "warehouse": "Warehouse"
+        }
+    }
+}

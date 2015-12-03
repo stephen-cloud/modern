@@ -1,0 +1,16 @@
+enum Department {
+  MENS, WOMENS, GARDEN, HOUSE, OTHER
+}
+entity Product {
+  description String required minlength(5) maxlength(50),
+  price BigDecimal required,
+  sku String,
+  stock Integer
+  department Department
+}
+entity Warehouse {
+  location String required
+}
+relationship ManyToMany {
+  Warehouse{stock} to Product{warehouse}
+}

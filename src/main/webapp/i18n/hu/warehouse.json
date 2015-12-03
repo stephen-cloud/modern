@@ -1,0 +1,19 @@
+{
+    "modernApp": {
+        "warehouse" : {
+            "home": {
+                "title": "Warehouses",
+                "createLabel": "Egy új Warehouse létrehozása",
+                "createOrEditLabel": "Hozzon létre, vagy módosítson Warehouset"
+            },
+            "delete": {
+                "question": "Biztos benne, hogy törölni szeretné az Warehouset {{ id }} azonosítóval?"
+            },
+            "detail": {
+                "title": "Warehouse"
+            },
+            "location": "Location",
+            "product": "Product"
+        }
+    }
+}

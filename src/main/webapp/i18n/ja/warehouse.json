@@ -1,0 +1,19 @@
+{
+    "modernApp": {
+        "warehouse" : {
+            "home": {
+                "title": "Warehouses",
+                "createLabel": "Warehouse を追加",
+                "createOrEditLabel": "Warehouseを追加または編集"
+            },
+            "delete": {
+                "question": "Warehouse {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Warehouse"
+            },
+            "location": "Location",
+            "product": "Product"
+        }
+    }
+}

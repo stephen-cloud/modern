@@ -1,0 +1,22 @@
+{
+    "modernApp": {
+        "warehouse" : {
+            "home": {
+                "title": "Warehouses",
+                "createLabel": "Crear novo Warehouse",
+                "createOrEditLabel": "Crear ou editar Warehouse"
+            },
+            "created": "Un novo Warehouse foi creado co identificador {{ param }}",
+            "updated": "Un Warehouse foi actualizado co identificador {{ param }}",
+            "deleted": "Un Warehouse foi eliminado co identificador {{ param }}",
+            "delete": {
+                "question": "Seguro que desexa eliminar Warehouse {{ id }}?"
+            },
+            "detail": {
+                "title": "Warehouse"
+            },
+            "location": "Location",
+            "product": "Product"
+        }
+    }
+}

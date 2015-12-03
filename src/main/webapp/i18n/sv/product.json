@@ -1,0 +1,23 @@
+{
+    "modernApp": {
+        "product" : {
+            "home": {
+                "title": "Products",
+                "createLabel": "Skapa en ny Product",
+                "createOrEditLabel": "Skapa eller ändra en Product"
+            },
+            "delete": {
+                "question": "Är du säker på att du vill ta bort Product {{ id }}?"
+            },
+            "detail": {
+                "title": "Product"
+            },
+            "description": "Description",
+            "price": "Price",
+            "sku": "Sku",
+            "stock": "Stock",
+            "department": "Department",
+            "warehouse": "Warehouse"
+        }
+    }
+}

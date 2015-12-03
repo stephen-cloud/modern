@@ -1,0 +1,12 @@
+{
+    "modernApp": {
+        "Department" : {
+            "null": "",
+            "MENS": "MENS",
+            "WOMENS": "WOMENS",
+            "GARDEN": "GARDEN",
+            "HOUSE": "HOUSE",
+            "OTHER": "OTHER"
+        }
+    }
+}

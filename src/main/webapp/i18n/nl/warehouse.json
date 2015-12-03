@@ -1,0 +1,19 @@
+{
+    "modernApp": {
+        "warehouse" : {
+            "home": {
+                "title": "Warehouses",
+                "createLabel": "Maak een nieuwe Warehouse",
+                "createOrEditLabel": "Maak of wijzig een Warehouse"
+            },
+            "delete": {
+                "question": "Bent u zeker dat u Warehouse {{ id }} wilt verwijderen?"
+            },
+            "detail": {
+                "title": "Warehouse"
+            },
+            "location": "Location",
+            "product": "Product"
+        }
+    }
+}

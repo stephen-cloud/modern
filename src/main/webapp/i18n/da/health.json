@@ -1,0 +1,20 @@
+{
+    "health": {
+        "title": "Sundhed",
+        "refresh.button": "Opdatér",
+        "stacktrace": "Stacktrace",
+        "indicator": {
+            "diskSpace": "Diskplads",
+            "mail": "Email",
+            "db": "Database"
+        },
+        "table": {
+            "service": "Tjenestenavn",
+            "status": "Status"
+        },
+        "status": {
+            "UP": "OP",
+            "DOWN": "NED"
+        }
+    }
+}

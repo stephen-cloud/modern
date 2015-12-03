@@ -1,0 +1,53 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipName": "warehouse",
+      "otherEntityName": "warehouse",
+      "relationshipType": "many-to-many",
+      "ownerSide": false,
+      "otherEntityRelationshipName": "product"
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required",
+        "minlength",
+        "maxlength"
+      ],
+      "fieldValidateRulesMinlength": 5,
+      "fieldValidateRulesMaxlength": 50
+    },
+    {
+      "fieldId": 2,
+      "fieldName": "price",
+      "fieldType": "BigDecimal",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldId": 3,
+      "fieldName": "sku",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 4,
+      "fieldName": "stock",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldId": 5,
+      "fieldName": "department",
+      "fieldType": "Department",
+      "fieldValues": "MENS,WOMENS,GARDEN,HOUSE,OTHER"
+    }
+  ],
+  "changelogDate": "20151202020650",
+  "dto": "no",
+  "pagination": "pagination"
+}

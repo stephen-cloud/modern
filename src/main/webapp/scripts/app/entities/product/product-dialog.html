@@ -1,0 +1,84 @@
+
+<form name="editForm" role="form" novalidate ng-submit="save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="clear()">&times;</button>
+        <h4 class="modal-title" id="myProductLabel" translate="modernApp.product.home.createOrEditLabel">Create or edit a Product</h4>
+    </div>
+    <div class="modal-body">
+        <jh-alert-error></jh-alert-error>
+        <div class="form-group">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="product.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="modernApp.product.description" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                    ng-model="product.description"
+                    required ng-minlength="5" ng-maxlength="50" />
+            <div ng-show="editForm.description.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.description.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.description.$error.minlength" translate="entity.validation.minlength" translate-value-min="5">
+                    This field is required to be at least 5 characters.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.description.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="50">
+                    This field cannot be longer than 50 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="modernApp.product.price" for="field_price">Price</label>
+            <input type="number" class="form-control" name="price" id="field_price"
+                    ng-model="product.price"
+                    required />
+            <div ng-show="editForm.price.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.price.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.price.$error.number" translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="modernApp.product.sku" for="field_sku">Sku</label>
+            <input type="text" class="form-control" name="sku" id="field_sku"
+                    ng-model="product.sku"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="modernApp.product.stock" for="field_stock">Stock</label>
+            <input type="number" class="form-control" name="stock" id="field_stock"
+                    ng-model="product.stock"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="modernApp.product.department" for="field_department">Department</label>
+            <select class="form-control" name="department" ng-model="product.department" id="field_department">
+                <option value="MENS" translate="modernApp.Department.MENS">MENS</option>
+                <option value="WOMENS" translate="modernApp.Department.WOMENS">WOMENS</option>
+                <option value="GARDEN" translate="modernApp.Department.GARDEN">GARDEN</option>
+                <option value="HOUSE" translate="modernApp.Department.HOUSE">HOUSE</option>
+                <option value="OTHER" translate="modernApp.Department.OTHER">OTHER</option>
+            </select>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>
