@@ -8,7 +8,7 @@
     "clusteredHttpSession": "no",
     "websocket": "no",
     "databaseType": "sql",
-    "devDatabaseType": "h2Disk",
+    "devDatabaseType": "postgresql",
     "prodDatabaseType": "postgresql",
     "searchEngine": "no",
     "useSass": false,

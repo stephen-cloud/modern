@@ -5,7 +5,7 @@
       "relationshipName": "product",
       "otherEntityName": "product",
       "relationshipType": "many-to-many",
-      "otherEntityField": "description",
+      "otherEntityField": "id",
       "ownerSide": true
     }
   ],

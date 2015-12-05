@@ -12,7 +12,7 @@
     <groupId>com.aciworldwide.modern</groupId>
     <artifactId>modern</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <name>modern</name>
 
     <repositories>
@@ -74,6 +74,8 @@
         <sonar.sources>${project.basedir}/src/main/</sonar.sources>
         <sonar.surefire.reportsPath>${project.testresult.directory}/surefire-reports</sonar.surefire.reportsPath>
         <sonar.tests>${project.basedir}/src/test/</sonar.tests>
+                <docker-maven-plugin.version>0.3.4</docker-maven-plugin.version>
+                <docker.prefix>aciworldwide</docker.prefix>
     </properties>
 
     <dependencies>
@@ -147,6 +149,7 @@
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>com.jayway.awaitility</groupId>
@@ -403,6 +406,22 @@
         	</testResource>
         </testResources>
         <plugins>
+                        <plugin>
+                                <groupId>com.spotify</groupId>
+                                <artifactId>docker-maven-plugin</artifactId>
+                                <version>${docker-maven-plugin.version}</version>
+                                <configuration>
+                                        <imageName>${docker.prefix}/${project.artifactId}</imageName>
+                                        <dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>
+                                        <resources>
+                                                <resource>
+                                                        <targetPath>/</targetPath>
+                                                        <directory>${project.build.directory}</directory>
+                                                        <include>${project.build.finalName}.jar</include>
+                                                </resource>
+                                        </resources>
+                                </configuration>
+                        </plugin>
             <plugin>
                 <groupId>com.google.code.sortpom</groupId>
                 <artifactId>maven-sortpom-plugin</artifactId>
@@ -564,12 +583,12 @@
                 <configuration>
                     <changeLogFile>src/main/resources/config/liquibase/master.xml</changeLogFile>
                     <diffChangeLogFile>src/main/resources/config/liquibase/changelog/${maven.build.timestamp}_changelog.xml</diffChangeLogFile>
-                    <driver>org.h2.Driver</driver>
-                    <url>jdbc:h2:tcp://localhost:9092/./target/h2db/db/tmp</url>
+                    <driver>org.postgresql.Driver</driver>
+                    <url>jdbc:postgresql://localhost/modern</url>
                     <defaultSchemaName></defaultSchemaName>
-                    <username></username>
+                    <username>modern</username>
                     <password></password>
-                    <referenceUrl>hibernate:spring:com.aciworldwide.modern.domain?dialect=org.hibernate.dialect.H2Dialect</referenceUrl>
+                    <referenceUrl>hibernate:spring:com.aciworldwide.modern.domain?dialect=org.hibernate.dialect.PostgreSQL82Dialect</referenceUrl>
                     <verbose>true</verbose>
                     <logging>debug</logging>
                 </configuration>

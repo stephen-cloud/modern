@@ -86,6 +86,6 @@ class WarehouseGatlingTest extends Simulation {
     val users = scenario("Users").exec(scn)
 
     setUp(
-        users.inject(rampUsers(500) over (1 minutes))
+        users.inject(rampUsers(100) over (1 minutes))
     ).protocols(httpConf)
 }

@@ -1,0 +1,42 @@
+<div>
+    <h2 translate="modernApp.product.low-stock.title">Products With Low Stock</h2>
+    <jh-alert></jh-alert>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th translate="global.field.id">ID</th>
+                    <th translate="modernApp.product.description">Description</th>
+                    <th translate="modernApp.product.price">Price</th>
+                    <th translate="modernApp.product.sku">Sku</th>
+                    <th translate="modernApp.product.stock">Stock</th>
+                    <th translate="modernApp.product.department">Department</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="product in products track by product.id">
+                    <td><a ui-sref="product.detail({id:product.id})">{{product.id}}</a></td>
+                    <td>{{product.description}}</td>
+                    <td>{{product.price}}</td>
+                    <td>{{product.sku}}</td>
+                    <td>{{product.stock}}</td>
+                    <td translate="{{'modernApp.Department.' + product.department}}">{{product.department}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <nav>
+            <ul class="pagination">
+                <li ng-show="links['first'] >= 0" ng-click="loadPage(links['first'], limit)"><a>&lt;&lt;</a></li>
+                <li ng-show="page > 0" ng-click="loadPage(links['prev'] || 0, limit)"><a>&lt;</a></li>
+                <li ng-show="page > 1" ng-click="loadPage(page - 2, limit)"><a>{{page - 1}}</a></li>
+                <li ng-show="page > 0" ng-click="loadPage(page - 1, limit)"><a>{{page}}</a></li>
+                <li class="active"><a>{{page + 1}}</a></li>
+                <li ng-show="page < links['last']" ng-click="loadPage(page + 1, limit)"><a>{{page + 2}}</a></li>
+                <li ng-show="page < links['last'] - 1" ng-click="loadPage(page + 2, limit)"><a>{{page + 3}}</a></li>
+                <li ng-show="links['next']" ng-click="loadPage(links['next'], limit)"><a>&gt;</a></li>
+                <li ng-show="links['last'] > 0" ng-click="loadPage(links['last'], limit)"><a>&gt;&gt;</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>

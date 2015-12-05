@@ -1,0 +1,21 @@
+lb:
+  image: 'tutum/haproxy:latest'
+  restart: always
+  links:
+    - web-green
+  ports:
+    - '8080:8080'
+  roles:
+   - global
+ 
+web-green:
+  image: 'tutum.co/nogbadthebad/modern:v3'
+  restart: always
+  target_num_containers: 3
+  deployment_strategy: high_availability
+ 
+web-blue:
+  image: 'tutum.co/nogbadthebad/modern:v3'
+  restart: always
+  target_num_containers: 1
+  deployment_strategy: high_availability
