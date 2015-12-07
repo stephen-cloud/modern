@@ -12,7 +12,7 @@
     <groupId>com.aciworldwide.modern</groupId>
     <artifactId>modern</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
     <name>modern</name>
 
     <repositories>
@@ -417,7 +417,7 @@
                                                 <resource>
                                                         <targetPath>/</targetPath>
                                                         <directory>${project.build.directory}</directory>
-                                                        <include>${project.build.finalName}.jar</include>
+                                                        <include>${project.build.finalName}.war</include>
                                                 </resource>
                                         </resources>
                                 </configuration>
@@ -584,7 +584,7 @@
                     <changeLogFile>src/main/resources/config/liquibase/master.xml</changeLogFile>
                     <diffChangeLogFile>src/main/resources/config/liquibase/changelog/${maven.build.timestamp}_changelog.xml</diffChangeLogFile>
                     <driver>org.postgresql.Driver</driver>
-                    <url>jdbc:postgresql://localhost/modern</url>
+                    <url>jdbc:postgresql://database-1.modern-blue-green.nogbadthebad.cont.tutum.io/modern</url>
                     <defaultSchemaName></defaultSchemaName>
                     <username>modern</username>
                     <password></password>

@@ -46,8 +46,8 @@ Then navigate to [http://localhost:8080](http://localhost:8080) in your browser.
 Unit tests are run by [Karma][] and written with [Jasmine][]. They're located in `src/test/javascript` and can be run with:
 
     grunt test
-    
-UI end-to-end tests are powered by [Protractor][], which is built on top of WebDriverJS. They're located in `src/test/javascript/e2e` 
+
+UI end-to-end tests are powered by [Protractor][], which is built on top of WebDriverJS. They're located in `src/test/javascript/e2e`
 and can be run by starting Spring Boot in one terminal (`mvn spring-boot:run`) and running the tests (`grunt itest`) in a second one.
 
 # Continuous Integration
@@ -73,6 +73,44 @@ To setup this project in Jenkins, use the following configuration:
         ````
 * Post-build Actions
     * Publish JUnit test result report / Test Report XMLs: `build/test-results/*.xml,build/reports/e2e/*.xml`
+
+# To deploy to Tutum
+
+* Build a Docker image (`aciworldwide/modern`) that will run in a Tutum cluster `mvn clean -DskipTests package spring-boot:repackage docker:build`
+* Tag the local image for the Tutum remote repository `docker tag aciworldwide/modern tutum.co/nogbadthebad/modern:v5` (pick your image name and version)
+* Push the new Docker image to Tutum `docker push tutum.co/nogbadthebad/modern:v5`
+* Use the following Tutum stack for a blue / green deployment with a PostgreSQL database
+````
+database:
+  image: 'postgres:latest'
+  environment:
+    - POSTGRES_PASSWORD=
+    - POSTGRES_USER=modern
+  ports:
+    - '5432:5432'
+lb:
+  image: 'tutum/haproxy:latest'
+  links:
+    - web-green
+  ports:
+    - '8080:8080'
+  restart: always
+  roles:
+    - global
+web-blue:
+  image: 'tutum.co/nogbadthebad/modern:v5'
+  deployment_strategy: high_availability
+  links:
+    - database
+  restart: always
+web-green:
+  image: 'tutum.co/nogbadthebad/modern:v5'
+  deployment_strategy: high_availability
+  links:
+    - database
+  restart: always
+  target_num_containers: 3
+````
 
 [JHipster]: https://jhipster.github.io/
 [Node.js]: https://nodejs.org/

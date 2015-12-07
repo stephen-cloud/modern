@@ -1,0 +1,13 @@
+database:
+  image: 'postgres:latest'
+  environment:
+    - POSTGRES_USER=modern
+    - POSTGRES_PASSWORD=
+  ports:
+    - '5432:5432'
+web:
+  image: 'tutum.co/nogbadthebad/modern:v4'
+  links:
+    - database
+  ports:
+    - '8080:8080'
