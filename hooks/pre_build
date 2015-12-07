@@ -2,5 +2,6 @@
 
 echo === Hi! ===
 apt-get update
-apt-get install -y npm nodejs
+apt-get install -y curl npm nodejs
+ln -s /usr/bin/nodejs /usr/bin/node
 npm install -g yo bower grunt-cli
