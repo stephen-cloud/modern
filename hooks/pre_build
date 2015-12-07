@@ -1,0 +1,6 @@
+# Tutum pre_build hooks
+
+echo === Hi! ===
+apt-get update
+apt-get install -y npm nodejs
+npm install -g yo bower grunt-cli
