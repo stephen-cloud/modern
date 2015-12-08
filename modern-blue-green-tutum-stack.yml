@@ -7,15 +7,27 @@ lb:
     - '8080:8080'
   roles:
    - global
- 
+
+database:
+  image: postgres:latest
+  environment:
+  - POSTGRES_USER=modern
+  - POSTGRES_PASSWORD=
+  ports:
+  - "5432:5432"
+  
 web-green:
-  image: 'tutum.co/nogbadthebad/modern:v3'
+  image: 'tutum.co/nogbadthebad/modern:snapshot'
+  links:
+  - database
   restart: always
   target_num_containers: 3
   deployment_strategy: high_availability
- 
+
 web-blue:
-  image: 'tutum.co/nogbadthebad/modern:v3'
+  image: 'tutum.co/nogbadthebad/modern:snapshot'
+  links:
+  - database
   restart: always
   target_num_containers: 1
   deployment_strategy: high_availability

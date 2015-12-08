@@ -12,7 +12,7 @@
     <groupId>com.aciworldwide.modern</groupId>
     <artifactId>modern</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <name>modern</name>
 
     <repositories>
@@ -406,22 +406,39 @@
         	</testResource>
         </testResources>
         <plugins>
-                        <plugin>
-                                <groupId>com.spotify</groupId>
-                                <artifactId>docker-maven-plugin</artifactId>
-                                <version>${docker-maven-plugin.version}</version>
-                                <configuration>
-                                        <imageName>${docker.prefix}/${project.artifactId}</imageName>
-                                        <dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>
-                                        <resources>
-                                                <resource>
-                                                        <targetPath>/</targetPath>
-                                                        <directory>${project.build.directory}</directory>
-                                                        <include>${project.build.finalName}.war</include>
-                                                </resource>
-                                        </resources>
-                                </configuration>
-                        </plugin>
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+		<version>${docker-maven-plugin.version}</version>
+                <configuration>
+                    <imageName>tutum.co/nogbadthebad/hello-world</imageName>
+                    <imageTags>
+                        <imageTag>${project.version}</imageTag>
+                    </imageTags>
+                    <baseImage>java:8</baseImage>
+                    <entryPoint>["java", "-Djava.security.egd=file:/dev/urandom", "-jar", "/${project.build.finalName}.jar"]</entryPoint>
+                    <exposes>
+                        <expose>8080</expose>
+                    </exposes>
+                    <!-- copy the service's jar file from target into the root directory of the image -->
+                    <resources>
+                        <resource>
+                            <targetPath>/</targetPath>
+                            <directory>${project.build.directory}</directory>
+                            <include>${project.build.finalName}.jar</include>
+                        </resource>
+                    </resources>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>build</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
             <plugin>
                 <groupId>com.google.code.sortpom</groupId>
                 <artifactId>maven-sortpom-plugin</artifactId>
