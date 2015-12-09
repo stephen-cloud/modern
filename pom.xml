@@ -420,7 +420,6 @@
                     <exposes>
                         <expose>8080</expose>
                     </exposes>
-                    <!-- copy the service's jar file from target into the root directory of the image -->
                     <resources>
                         <resource>
                             <targetPath>/</targetPath>
@@ -438,7 +437,6 @@
                     </execution>
                 </executions>
             </plugin>
-
             <plugin>
                 <groupId>com.google.code.sortpom</groupId>
                 <artifactId>maven-sortpom-plugin</artifactId>
@@ -601,7 +599,7 @@
                     <changeLogFile>src/main/resources/config/liquibase/master.xml</changeLogFile>
                     <diffChangeLogFile>src/main/resources/config/liquibase/changelog/${maven.build.timestamp}_changelog.xml</diffChangeLogFile>
                     <driver>org.postgresql.Driver</driver>
-                    <url>jdbc:postgresql://database-1.modern-blue-green.nogbadthebad.cont.tutum.io/modern</url>
+                    <url>jdbc:postgresql://database-1.modern-simple.nogbadthebad.cont.tutum.io/modern</url>
                     <defaultSchemaName></defaultSchemaName>
                     <username>modern</username>
                     <password></password>
